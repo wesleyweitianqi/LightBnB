@@ -5,7 +5,7 @@ const {getAllProperties} = require('./database')
 module.exports = function(router, database) {
 
   router.get('/properties', (req, res) => {
-     getAllProperties(20)
+     database.getAllProperties(req.query, 20)
     .then(properties => res.send({properties}))
     .catch(e => {
       console.error(e);
